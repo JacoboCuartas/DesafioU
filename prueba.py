@@ -72,28 +72,3 @@ plt.ylabel("Gasto promedio en salud per cápita")
 plt.xticks(rotation=90)
 plt.tight_layout()
 plt.show()
-
-# Gráfico de dispersión: relación gasto promedio vs esperanza de vida promedio
-plt.figure(figsize=(8, 5))
-plt.scatter(data_promedio["Capital"], data_promedio["Objective_Life_Expectancy"], color='green')
-plt.title(f"Relación entre gasto promedio en salud y esperanza de vida ({inicio}-{fin})")
-plt.xlabel("Gasto en salud per cápita (promedio)")
-plt.ylabel("Esperanza de vida (promedio)")
-plt.show()
-
-# Análisis de correlación
-correlacion = data_promedio["Capital"].corr(data_promedio["Objective_Life_Expectancy"])
-print(f"\nCoeficiente de correlación entre gasto y esperanza de vida ({inicio}-{fin}): {correlacion:.3f}")
-
-if correlacion > 0.5:
-    print("Existe una correlación positiva: a mayor gasto en salud, mayor esperanza de vida.")
-elif correlacion < -0.5:
-    print("Existe una correlación negativa: a mayor gasto en salud, menor esperanza de vida.")
-else:
-    print(" No hay una correlación fuerte entre ambas variables.")
-
-# Guardar el archivo con los países de mayor gasto
-filtro_output = os.path.join(base_dir, f"paises_mayor_gasto_{inicio}_{fin}.xlsx")
-paises_mayor_gasto.to_excel(filtro_output, index=False)
-print(f"\nArchivo con países de mayor gasto promedio guardado en: {filtro_output}")
-
