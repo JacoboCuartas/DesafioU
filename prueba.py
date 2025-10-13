@@ -80,3 +80,14 @@ plt.title(f"Relación entre gasto promedio en salud y esperanza de vida ({inicio
 plt.xlabel("Gasto en salud per cápita (promedio)")
 plt.ylabel("Esperanza de vida (promedio)")
 plt.show()
+
+# Análisis de correlación
+correlacion = data_promedio["Capital"].corr(data_promedio["Objective_Life_Expectancy"])
+print(f"\nCoeficiente de correlación entre gasto y esperanza de vida ({inicio}-{fin}): {correlacion:.3f}")
+
+if correlacion > 0.5:
+    print("Existe una correlación positiva: a mayor gasto en salud, mayor esperanza de vida.")
+elif correlacion < -0.5:
+    print("Existe una correlación negativa: a mayor gasto en salud, menor esperanza de vida.")
+else:
+    print(" No hay una correlación fuerte entre ambas variables.")
