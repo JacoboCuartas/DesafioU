@@ -91,3 +91,8 @@ elif correlacion < -0.5:
     print("Existe una correlación negativa: a mayor gasto en salud, menor esperanza de vida.")
 else:
     print(" No hay una correlación fuerte entre ambas variables.")
+
+# Guardar el archivo con los países de mayor gasto
+filtro_output = os.path.join(base_dir, f"paises_mayor_gasto_{inicio}_{fin}.xlsx")
+paises_mayor_gasto.to_excel(filtro_output, index=False)
+print(f"\nArchivo con países de mayor gasto promedio guardado en: {filtro_output}")
