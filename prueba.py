@@ -72,3 +72,11 @@ plt.ylabel("Gasto promedio en salud per cápita")
 plt.xticks(rotation=90)
 plt.tight_layout()
 plt.show()
+
+# Gráfico de dispersión: relación gasto promedio vs esperanza de vida promedio
+plt.figure(figsize=(8, 5))
+plt.scatter(data_promedio["Capital"], data_promedio["Objective_Life_Expectancy"], color='green')
+plt.title(f"Relación entre gasto promedio en salud y esperanza de vida ({inicio}-{fin})")
+plt.xlabel("Gasto en salud per cápita (promedio)")
+plt.ylabel("Esperanza de vida (promedio)")
+plt.show()
